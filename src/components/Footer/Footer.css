@@ -1,0 +1,16 @@
+.footer{
+    background-color:grey;
+    height: 100px;
+    display:flex; 
+    justify-content: center;
+    align-items: center;    
+}
+
+.icon{
+    padding:.4em;
+    color:white;
+}
+.icon:hover{
+    color: rgba(255,255,255,.5);
+    transition: .3s all ease-in;
+}
