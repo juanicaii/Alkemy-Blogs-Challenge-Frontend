@@ -2,10 +2,13 @@ import Title from "../../components/Title";
 import Post from "../../components/Post";
 import useHttp from "../../hooks/useHttp";
 import config from "../../react.config";
+import { Pagination } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
+import { useState } from "react";
 import "./HomeView.css";
 export default function HomeView() {
-  const posts = useHttp(`${config.api_url}/posts`, "get");
+  const [currentPage, setCurrentPage] = useState(1);
+  const posts = useHttp(`${config.api_url}/posts?_page=${currentPage}`, "get");
 
   return (
     <>
@@ -33,6 +36,15 @@ export default function HomeView() {
             />
           )}
         </div>
+      </div>
+      <div className="pagination">
+        <Pagination
+          defaultCurrent={currentPage}
+          onChange={(page) => {
+            setCurrentPage(page);
+          }}
+          total={50}
+        />
       </div>
     </>
   );

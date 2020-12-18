@@ -8,3 +8,7 @@
 .postswrapper{  
    justify-content: left;
 }
+.pagination{
+   display: flex;
+   justify-content: center;
+}

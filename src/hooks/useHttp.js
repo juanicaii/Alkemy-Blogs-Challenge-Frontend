@@ -14,7 +14,7 @@ export default function useHttp(url, method) {
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [url]);
 
   return data;
 }

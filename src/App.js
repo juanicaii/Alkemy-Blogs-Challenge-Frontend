@@ -2,7 +2,8 @@ import { Router, Switch, Route, Redirect } from "react-router-dom";
 import LayoutComponent from "./components/Layout";
 import HomeView from "./views/HomeView";
 import DetailsPostView from "./views/DetailsPostView";
-import AdminPanel from "./views/AdminPanel";
+import AdminPanelView from "./views/AdminPanelView";
+
 import history from "./history";
 
 import NotFoundView from "./views/NotFoundView";
@@ -16,7 +17,7 @@ function App() {
             <Route exact path="/" render={() => <Redirect to="/home" />} />
             <Route exact path="/home" component={HomeView} />
             <Route exact path="/post/:id" component={DetailsPostView} />
-            <Route exact path="/admin" component={AdminPanel} />
+            <Route exact path="/admin" component={AdminPanelView} />
             <Route path="*">
               <NotFoundView />
             </Route>
