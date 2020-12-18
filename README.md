@@ -7,7 +7,7 @@ This is a frontend challenge from Alkemy
 _Get a copy of the working project on your local machine for development and testing purposes. You can run:_
 
 ```
-$ git clone https://github.com/juaniseijas00/Alkemy-Blogs-Challenge-Backend.git
+$ git clone https://github.com/juaniseijas00/Alkemy-Blogs-Challenge-Frontend.git
 
 ```
 
