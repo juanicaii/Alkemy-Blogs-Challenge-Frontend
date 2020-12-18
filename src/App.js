@@ -1,25 +1,29 @@
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import Layout from "./components/Layout";
+import { Router, Switch, Route, Redirect } from "react-router-dom";
+import LayoutComponent from "./components/Layout";
 import HomeView from "./views/HomeView";
 import DetailsPostView from "./views/DetailsPostView";
+import AdminPanel from "./views/AdminPanel";
+import history from "./history";
+
 import NotFoundView from "./views/NotFoundView";
 
 function App() {
   return (
-    <Layout>
+    <LayoutComponent currentPage={"home"}>
       <div className="App">
-        <BrowserRouter>
+        <Router history={history}>
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/home" />} />
             <Route exact path="/home" component={HomeView} />
             <Route exact path="/post/:id" component={DetailsPostView} />
+            <Route exact path="/admin" component={AdminPanel} />
             <Route path="*">
               <NotFoundView />
             </Route>
           </Switch>
-        </BrowserRouter>
+        </Router>
       </div>
-    </Layout>
+    </LayoutComponent>
   );
 }
 

@@ -1,0 +1,31 @@
+.post{
+    display: flex;
+    align-items: center;
+    margin-bottom: 3em;
+    justify-content: center;  
+}
+
+.title-post{
+    font-family: var(--main-font);    
+    font-size: 2em;
+    text-align: left;
+    text-decoration: none;
+    color: black;   
+    white-space: nowrap;
+    overflow:hidden; 
+    width: 100%;
+    
+   
+}
+.title-body{
+   
+    text-align: left;
+}
+
+.icon-post{
+    margin: 0 .3em;
+}
+.icon-post:hover{
+    color: rgba(0,0,0,.4);
+    transition: all .3s ease;
+}
