@@ -1,7 +1,6 @@
 import { Table, Modal, Space } from "antd";
 import config from "../../react.config";
 import useHttp from "../../hooks/useHttp";
-import { Link } from "react-router-dom";
 import Title from "../../components/Title";
 import FormPost from "../../components/FormPost";
 import axios from "axios";
@@ -13,8 +12,9 @@ import {
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { useState } from "react";
-
+import history from "../../history";
 const MySwal = withReactContent(Swal);
+
 export default function AdminPanel() {
   const [edited, setEdited] = useState(false);
   const [seletedItem, setSelectedItem] = useState(null);
@@ -34,12 +34,13 @@ export default function AdminPanel() {
       const deletedItem = await axios.delete(`${config.api_url}/posts/${id}`);
       if (deletedItem) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        history.go(0);
       }
     }
   };
 
-  const editPost = async ({ id, title, body }) => {
-    setSelectedItem({ id, title, body });
+  const editPost = async ({ id, title, body, image, category }) => {
+    setSelectedItem({ id, title, body, image, category: category.name });
     setEdited(true);
   };
 
@@ -60,6 +61,7 @@ export default function AdminPanel() {
       key: "createdAt",
       render: (text) => "20/12/2020",
     },
+
     {
       title: "Action",
       key: "action",

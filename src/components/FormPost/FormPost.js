@@ -1,41 +1,43 @@
-import { useState } from "react";
 import { Modal, Button, Form, Input } from "antd";
-import useHttp from "../../hooks/useHttp";
 import config from "../../react.config";
 import axios from "axios";
-
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-
-const layout = {
-  labelCol: { span: 5 },
-  wrapperCol: { span: 16 },
-};
-const validateMessages = {
-  required: "${label} is required!",
-};
-
-const MySwal = withReactContent(Swal);
-
+import history from "../../history";
 export default function FormPost({ open, setOpen, item }) {
   const handleCancel = () => {
     setOpen(false);
   };
 
+  const MySwal = withReactContent(Swal);
+
+  const layout = {
+    labelCol: { span: 5 },
+    wrapperCol: { span: 16 },
+  };
+
+  const validateMessages = {
+    required: "${label} is required!",
+  };
+
   const onFinish = async (values) => {
+    console.log(item);
     const post = {
       id: values.id,
       title: values.title,
       body: values.content,
+      image: item.image,
+      category: item.category,
       userId: 1,
     };
-    const editedItem = await axios.put(
+    const editedItem = await axios.patch(
       `${config.api_url}/posts/${item.id}`,
       post
     );
 
     if (editedItem) {
       MySwal.fire("Good job!", "Edited Succesfuly!", "success");
+      history.go(0);
       setOpen(false);
     }
   };

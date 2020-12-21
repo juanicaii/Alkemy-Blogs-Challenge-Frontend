@@ -6,7 +6,8 @@ import { Pagination } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import "./HomeView.css";
-export default function HomeView() {
+
+export default function HomeView({ server }) {
   const [currentPage, setCurrentPage] = useState(1);
   const posts = useHttp(`${config.api_url}/posts?_page=${currentPage}`, "get");
 
@@ -16,10 +17,11 @@ export default function HomeView() {
 
       <div className="container">
         <div className="posts">
-          {posts.length ? (
+          {posts !== null ? (
             <div className="postswrapper">
               {posts.map((post) => (
                 <Post
+                  image={post.image}
                   key={post.id}
                   body={post.body}
                   title={post.title}
@@ -37,15 +39,19 @@ export default function HomeView() {
           )}
         </div>
       </div>
-      <div className="pagination">
-        <Pagination
-          defaultCurrent={currentPage}
-          onChange={(page) => {
-            setCurrentPage(page);
-          }}
-          total={50}
-        />
-      </div>
+      {!config.api ? (
+        <div className="pagination">
+          <Pagination
+            defaultCurrent={currentPage}
+            onChange={(page) => {
+              setCurrentPage(page);
+            }}
+            total={100}
+          />
+        </div>
+      ) : (
+        ""
+      )}
     </>
   );
 }
