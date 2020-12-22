@@ -30,7 +30,9 @@ export default function NewPostView() {
 
     if (createdItem) {
       MySwal.fire("Good job!", "Created Succesfuly!", "success");
-      history.push("/home");
+      setTimeout(() => {
+        history.push("/home");
+      }, 2000);
     }
   };
   return (

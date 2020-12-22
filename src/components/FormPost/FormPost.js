@@ -30,6 +30,7 @@ export default function FormPost({ open, setOpen, item }) {
       category: item.category,
       userId: 1,
     };
+
     const editedItem = await axios.patch(
       `${config.api_url}/posts/${item.id}`,
       post

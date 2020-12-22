@@ -9,6 +9,8 @@ export default function useCurrentPage(history) {
       setPage("2");
     } else if (url === "/posts/create") {
       setPage("3");
+    } else {
+      setPage("1");
     }
   }, []);
 

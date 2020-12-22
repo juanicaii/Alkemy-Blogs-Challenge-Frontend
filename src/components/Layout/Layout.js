@@ -35,7 +35,9 @@ export default function LayoutComponent({ children, currentPage }) {
   ];
 
   const handlerNavigation = (url, key) => {
-    history.push(url);
+    setTimeout(() => {
+      history.push(url);
+    }, 2000);
   };
 
   const onCollapse = () => {

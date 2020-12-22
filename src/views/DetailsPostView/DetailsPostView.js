@@ -22,13 +22,13 @@ export default function DetailsPostView() {
   }
 
   const image = posts.image ? posts.image : "/blog1.png";
+
   return (
     <div className="post-content">
-      {posts !== [] ? (
+      {posts.length !== 0 ? (
         <>
           <img src={image} alt="logo" />
           <Title>{posts.title}</Title>
-
           <Paragraph>{posts.body}</Paragraph>
         </>
       ) : (

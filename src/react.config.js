@@ -1,4 +1,3 @@
 module.exports = {
-  api_url: "https://jsonplaceholder.typicode.com",
-  api: "",
+  api_url: "http://localhost:3000",
 };
