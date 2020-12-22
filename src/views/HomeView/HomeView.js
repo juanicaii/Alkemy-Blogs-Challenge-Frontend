@@ -18,24 +18,28 @@ export default function HomeView({ server }) {
       <div className="container">
         <div className="posts">
           {posts !== null ? (
-            <div className="postswrapper">
-              {posts.map((post) => (
-                <Post
-                  image={post.image}
-                  key={post.id}
-                  body={post.body}
-                  title={post.title}
-                  id={post.id}
-                />
-              ))}
-            </div>
+            posts.length ? (
+              <div className="postswrapper">
+                {posts.map((post) => (
+                  <Post
+                    image={post.image}
+                    key={post.id}
+                    body={post.body}
+                    title={post.title}
+                    id={post.id}
+                  />
+                ))}
+              </div>
+            ) : (
+              <LoadingOutlined
+                style={{
+                  fontSize: 30,
+                  display: "flex",
+                }}
+              />
+            )
           ) : (
-            <LoadingOutlined
-              style={{
-                fontSize: 30,
-                display: "flex",
-              }}
-            />
+            ""
           )}
         </div>
       </div>
