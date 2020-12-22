@@ -21,7 +21,6 @@ export default function FormPost({ open, setOpen, item }) {
   };
 
   const onFinish = async (values) => {
-    console.log(item);
     const post = {
       id: values.id,
       title: values.title,
@@ -38,7 +37,9 @@ export default function FormPost({ open, setOpen, item }) {
 
     if (editedItem) {
       MySwal.fire("Good job!", "Edited Succesfuly!", "success");
-      history.go(0);
+      setTimeout(() => {
+        history.go(0);
+      }, 1000);
       setOpen(false);
     }
   };

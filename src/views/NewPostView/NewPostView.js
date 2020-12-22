@@ -32,7 +32,7 @@ export default function NewPostView() {
       MySwal.fire("Good job!", "Created Succesfuly!", "success");
       setTimeout(() => {
         history.push("/home");
-      }, 2000);
+      }, 1000);
     }
   };
   return (
