@@ -29,7 +29,7 @@ $ npm run start
 
 _Then open: http://localhost:3000
 
-## Build whit 🛠️
+## Build with 🛠️
 
 - [React JS](https://es.reactjs.org)
 
